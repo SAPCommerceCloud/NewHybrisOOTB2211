@@ -12,6 +12,7 @@
 </c:if>
 
 <div class="account-section-header ${noBorder}">
+<!--Welocme page-->
     <spring:theme code="text.account.addressBook"/>
 
         <ycommerce:testId code="addressBook_addNewAddress_button">
