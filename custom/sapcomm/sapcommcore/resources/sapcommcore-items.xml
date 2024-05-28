@@ -48,6 +48,7 @@
                 </attributes>
             </itemtype>
 
+
             <itemtype code="ApparelStyleVariantProduct" extends="VariantProduct"
                       autocreate="true" generate="true"
                       jaloclass="de.hybris.sapcomm.core.jalo.ApparelStyleVariantProduct">
@@ -85,6 +86,35 @@
                     </attribute>
                 </attributes>
             </itemtype>
+
+
+            <itemtype code="MemberDetails" generate="true" autocreate="true">
+                <deployment table="MemberDetails" typecode="10201"/>
+                <attributes>
+                    <attribute qualifier="memberName" type="java.lang.String">
+                        <description>Is for the MemberName</description>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="memberAge" type="java.lang.Byte">
+                        <description>This is used to gather the user age</description>
+                        <persistence type="property"/>
+                    </attribute>
+                    <attribute qualifier="memberBloodGroup" type="java.lang.String">
+                        <description>This will show the User Blood Group</description>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+            <itemtype code="MemberDetailsCronjob" extends="CronJob" autocreate="true" generate="true">
+                <attributes>
+                    <attribute qualifier="ages" type="byte">
+                        <defaultvalue>Byte.valueOf(18)</defaultvalue>
+                        <description>This is the used to identify the age of the customers</description>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+
         </typegroup>
 
         <typegroup name="Electronics">
