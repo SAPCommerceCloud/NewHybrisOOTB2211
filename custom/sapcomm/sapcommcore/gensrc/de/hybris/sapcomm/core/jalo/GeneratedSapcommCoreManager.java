@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at 18-Mar-2024, 8:15:57 pm                     ---
+ * --- Generated at 24-Jun-2024, 1:24:41 pm                     ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2024 SAP SE or an SAP affiliate company. All rights reserved.
@@ -21,6 +21,8 @@ import de.hybris.sapcomm.core.jalo.ApparelProduct;
 import de.hybris.sapcomm.core.jalo.ApparelSizeVariantProduct;
 import de.hybris.sapcomm.core.jalo.ApparelStyleVariantProduct;
 import de.hybris.sapcomm.core.jalo.ElectronicsColorVariantProduct;
+import de.hybris.sapcomm.core.jalo.MemberDetails;
+import de.hybris.sapcomm.core.jalo.MemberDetailsCronjob;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -150,6 +152,58 @@ public abstract class GeneratedSapcommCoreManager extends Extension
 	public ElectronicsColorVariantProduct createElectronicsColorVariantProduct(final Map attributeValues)
 	{
 		return createElectronicsColorVariantProduct( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public MemberDetails createMemberDetails(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( SapcommCoreConstants.TC.MEMBERDETAILS );
+			return (MemberDetails)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating MemberDetails : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public MemberDetails createMemberDetails(final Map attributeValues)
+	{
+		return createMemberDetails( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public MemberDetailsCronjob createMemberDetailsCronjob(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( SapcommCoreConstants.TC.MEMBERDETAILSCRONJOB );
+			return (MemberDetailsCronjob)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating MemberDetailsCronjob : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public MemberDetailsCronjob createMemberDetailsCronjob(final Map attributeValues)
+	{
+		return createMemberDetailsCronjob( getSession().getSessionContext(), attributeValues );
 	}
 	
 	@Override
