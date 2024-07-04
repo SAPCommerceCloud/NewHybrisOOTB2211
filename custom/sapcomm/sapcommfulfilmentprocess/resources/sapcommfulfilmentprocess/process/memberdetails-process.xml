@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<process xmlns="http://www.hybris.de/xsd/processdefinition" start="memberDetailsAction" name="memberdetails-process" processClass="de.hybris.platform.orderprocessing.model.OrderProcessModel">
+
+	<action id="memberDetailsAction" bean="memberDetailsActions1">
+		<transition name="OK" to="memberDetailsAction2"/>
+		<transition name="NOK" to="error"/>
+	</action>
+
+	<action id="memberDetailsAction2" bean="memberDetailsActions2">
+		<transition name="OK" to="success"/>
+		<transition name="NOK" to="error"/>
+	</action>
+
+
+	<end id="error" state="ERROR">All went wrong.</end>
+	<end id="failed" state="FAILED">MemberDetails not placed.</end>
+	<end id="success" state="SUCCEEDED">MemberDetails placed.</end>
+
+</process>
